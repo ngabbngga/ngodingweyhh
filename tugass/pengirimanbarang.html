@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            padding: 18px;
+            background-color: tomato;
+        }
+    </style>
+    <h3 style="color: white;">program pengiriman barang</h3>
+    <p style="color: white;">
+        <script>
+            var pengirim = prompt("masukan nama pengirim barang")
+            document.write("nama pengirim ; ", pengirim + "<br>")
+
+            var penerima = prompt("masukan nama penerima barang")
+            document.write("nama penerimaa ; ", penerima + "<br>")
+
+            var alamat = prompt("masukan alamat tujuan penerimaaa barang (no.rumah, jalan, Rt/Rw, kecamatan, kotaaa")
+            document.write("alamat tujuan ; ", alamat + "<br>")
+
+            var jenis = prompt("jenis barang apakah yang anda kirimkann?")
+            document.write("jenis barang ; ", jenis + "<br>")
+
+            var jarak = prompt("masukann jarak tujuan barang diantarkan, cukup angka (km)")
+            var jarakhrg = jarak*10000
+            var jarakdscnt = 10/100
+            var jarakhsl = jarakhrg*jarakdscnt
+            var jarakjmlh = parseInt(jarakhrg)-parseInt(jarakhsl)
+            document.write("jarak tempuh barang ; ", jarak + " km","<br>")
+            document.write("jarak harga ; Rp.", jarakhrg + "<br>")
+            if (jarakhrg >= 50000) {
+                document.write("discount 10% ; Rp.", jarakhsl + "<br>")
+                document.write("jmlahh ; Rp.", jarakjmlh + "<br>")
+            }else if(jarakhrg <= 50000){
+                document.write("sayang sekali anda tidak menddapatkan discount, hhoonkkkk", "<br>")
+                document.write("jumlah ; Rp. ", "<br>", jarakhrg)
+            }
+
+            var berat = prompt("masukan berat tujuan barang diantarkan, cukup angka(kg)")
+            var berathrg = berat*5000
+            var beratdscnt = 5/100
+            var berathsl = berathrg*beratdscnt
+            var beratjmlh = parseInt(berathrg)-parseInt(berathsl)
+            document.write("berat barang ; ", berat + " kg","<br>")
+            document.write("berat harga ; Rp.", berathrg + "<br>")
+            if (berathrg >= 100000) {
+                document.write("discount 5% ; Rp.", berathsl + "<br>")
+                document.write("jumlahh ; Rp.", beratjmlh + "<br>")
+            }else if(berathrg <= 100000){
+                document.write("sayang sekali anda tidak mendapatkan discount, hhoonkkkk", "<br>")
+                document.write("jumlahh ; Rp.", berathrg + "<br>")
+            }
+
+            var biaya = parseInt(jarakjmlh)+parseInt(beratjmlh)
+            document.write("biaya pengirimannn ; ",jarakjmlh,(" + "), beratjmlh," = ", biaya + "<br>")
+        </script>
+    </p>
+</body>
+</html>
