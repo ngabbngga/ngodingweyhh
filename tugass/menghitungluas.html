@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var bangun = prompt("masukannnnnnnnnnn kode berikut (persegi, persegi panjang, segitiga dan lingkaran)")
+        if(bangun === "persegi"){
+            var s = prompt("masukan sisi")
+            var hasil = s*s
+            document.write("jadi, luas persegi adalahhh " + hasil)
+        }else if(bangun === "persegi panjang"){
+            var p = prompt("masukan panjang")
+            var l = prompt("masukan lebar")
+            var hasil = p*l
+            document.write("jadi, luas persegi panjang adalahhh " + hasil)
+        }else if(bangun === "segitiga"){
+            var a = prompt("masukan alas")
+            var t = prompt("masukan tinggi")
+            var hasil = a*t/2
+            document.write("jadi, luas segitiga adalahhh " + hasil)
+        }else if(bangun === "lingkaran"){
+            const phi = 3.14
+            var r = prompt("masukan jari")
+            var hasil = phi*r*r
+            document.write("jadi, luas lingkaran adalahhh " + hasil)
+        }else{
+            alert("salahh masukan kode yee, honkkk")
+        }
+    </script>
+</body>
+</html>
