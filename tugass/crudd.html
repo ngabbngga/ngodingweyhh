@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+        .container{
+            width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-2">
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </symbol>
+        </svg>
+        <div class="alert alert-warning d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <div>
+              Create Read Update ndd Deleted :/ angga
+            </div>
+        </div>
+        <div class="mt-2">
+            <label for="">Nama</label>
+            <input type="text" class="form-control" id="inputnama" placeholder="Masukan Nama">
+        </div>
+        <label for="" class="mt-2">Kelas</label>
+        <select class="form-select" id="inputkelas">
+            <option value="X">X</option>
+            <option value="XI">XI</option>
+            <option value="XII">XII</option>
+        </select>
+        <div class="mt-2">
+            <label for="">No.Telp</label>
+            <input type="number" class="form-control" id="inputtelp" placeholder="Masukan No.Telp">
+        </div>
+        <div class="mt-2">
+            <label for="">Email</label>
+            <input type="email" class="form-control" id="inputemail" placeholder="Masukan Email">
+        </div>
+        <div class="mt-2">
+            <label for="" class="form-label mt-2">Alamat <b>kamu tinggal dimana hayyo?</b></label>
+            <textarea class="form-control" id="inputalamat" rows="3" placeholder="Masukan Alamat Rumah"></textarea>
+        </div>
+
+        <button class="btn  btn-primary mt-3" onclick="tambah()" type="button">Tambah</button>
+        <table class="table mt-2">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Kelas</th>
+                    <th>No.Telp</th>
+                    <th>Email</th>
+                    <th>Alamat</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tabel">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var nama = ["Eddo",];
+        var kelas = ["X",];
+        var alamat = ["Jakarta",];
+        var email = ["wpddknge@gmail.com",]
+        var telp = ["081295683569",]
+
+        var tabel = document.getElementById("tabel");
+
+        function tampil(){
+
+            tabel.innerHTML = "";
+            for (i = 0; i<nama.length; i++){
+                var btnEdit = "<button class='btn btn-warning' onclick='edit("+i+")' type='button'>Edit</button>";
+                var btnHapus = "<button class='btn btn-danger' onclick='hapus("+i+")' type='button'>Hapus</button>";
+                j = i + 1;
+                tabel.innerHTML += "<tr><td>"+j+"</td><td>"+nama[i]+"</td><td>"+kelas[i]+"</td><td>"+telp[i]+"</td><td>"+email[i]+"</td><td>"+alamat[i]+"</td><td>"+btnEdit+" "+btnHapus+"</td></tr>";
+            }
+        }
+
+        function tambah(){
+            var namabaru = document.getElementById("inputnama").value
+            var kelasbaru = document.getElementById("inputkelas").value
+            var alamatbaru = document.getElementById("inputalamat").value
+            var emailbaru = document.getElementById("inputemail").value
+            var telpbaru = document.getElementById("inputtelp").value
+            nama.push(namabaru);
+            kelas.push(kelasbaru);
+            alamat.push(alamatbaru);
+            email.push(emailbaru);
+            telp.push(telpbaru);
+            tampil();
+        }
+
+        function edit(id){
+            var namaedit = prompt("Edit Nama", nama[id]);
+            nama[id] = namaedit;
+            var telpedit = prompt("Edit No.Telp", telp[id]);
+            telp[id] = telpedit;
+            var emailedit = prompt("Edit Email", email[id]);
+            email[id] = emailedit;
+            var alamatedit = prompt("Edit Alamat", alamat[id]);
+            alamat[id] = alamatedit;
+
+            tampil();
+        }
+
+        function hapus(id){
+            nama.splice(id, 1);
+            tampil();
+        }
+        tampil();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>
