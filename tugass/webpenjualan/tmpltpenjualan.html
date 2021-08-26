@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <style>
+        .jumbotron{
+            height: 360px;
+            background-image: url(backgrndd.jpeg);
+            background-size: cover;
+            background-position-y: -50px;
+        }
+        .judullist{
+            height: 50px;
+        }
+        .display-4{
+            font-size: 90px;
+            font-weight: bold;
+        }
+        .lead{
+            font-weight: bold;
+        }
+        .apaya{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid text-white">
+        <div class="container">
+          <h1 class="display-4">Fluid jumbotron</h1>
+          <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat porro quod, excepturi quidem quisquam veritatis, sapiente praesentium enim, provident quam at fuga error perferendis ratione rem adipisci omnis rerum nesciunt?</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="bg-warning text-white text-center apaya" style="padding: 12px; border-radius: 3px;" role="">
+                    <b>List Items</b>
+                </div>
+                <p class="mt-3 mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quae sapiente omnis rerum quam fugit adipisci, ducimus molestiae minima <span class="text-warning">byee angga :p</span> alias veritatis optio, nihil ab velit eos aperiam illo?</p>
+
+                <div class="listkeranjang" id="listkeranjang">
+                    <div class="alert alert-warning text-center" role="">
+                        <b>Sudah Tau Ingin Membeli Apa?</b>
+                    </div>
+                </div>
+                
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td>Discount (5%)</td>
+                            <td>Rp. <span id="discount"></span></td>
+                        </tr>
+                        <tr>
+                            <td>PPN (10%)</td>
+                            <td>Rp. <span id="pajak"></span></td>
+                        </tr>
+                        <tr class="bg-warning text-white">
+                            <td>Total Bayar (10%)</td>
+                            <td>Rp. <span id="totalbayar"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-warning mt-3 btn-block text-white apaya">Bayar</button>
+
+            </div>
+            
+            <div class="col-8" id="listproduk">
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var namabarang = ["Burger Winy", "French Fries", "Donat hye", "Pizza Lumer", "Paket Kenyang Dehh", "Cips Combo"]
+        var hargabarang = [26000, 23000, 36000, 56000, 23000, 67547]
+        var gambarbarang = ["burger.jpeg", "kentang.jpeg", "doughhnt.jpeg", "pizza.jpeg", "paketkenyang.jpeg", "cipscombo.jpeg"]
+        var descbarang = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quae sapiente"
+        var listproduk = document.getElementById("listproduk")
+
+        var namabarangKeranjang = []
+        var hargabarangKeranjang = []
+
+        function showProduk() {
+            listproduk.innerHTML = ""
+            
+            for (let i = 0; i < namabarang.length; i++) {
+                listproduk.innerHTML += '<div class="card float-left mr-3 mb-3" style="width: 12rem;">'+
+                    '<img src="'+gambarbarang[i]+'" class="card-img-top" alt="">'+
+                    '<div class="card-body">'+
+                      '<h5 class="card-title">'+namabarang[i]+'</h5>'+
+                      '<p class="card-text">'+descbarang+'</p>'+
+                      '<p class="card-text"> Rp. '+hargabarang[i]+'</p>'+
+                      '<a href="#" class="btn btn-warning text-white" onclick="addlistitem('+i+')">Beli</a>'+
+                    '</div>'+
+                '</div>'
+            }
+        }
+        showProduk()
+
+        function addlistitem(id) {
+            namabarangKeranjang.push(namabarang[id])
+            hargabarangKeranjang.push(hargabarang[id])
+
+            showKeranjang()
+        }
+
+        var listkeranjang = document.getElementById("listkeranjang")
+        var tampildiscount = document.getElementById("discount")
+        var tampilpajak = document.getElementById("pajak")
+        var tampiltotalbayar = document.getElementById("totalbayar")
+
+        function showKeranjang(){
+            listkeranjang.innerHTML = ""
+
+            var discount = 0;
+            var pajak = 0;
+            var hargatotal = 0;
+            var totalbayar = 0;
+            
+            for (let i = 0; i < namabarangKeranjang.length; i++) {
+                listkeranjang.innerHTML +=
+                '<div class="card mt-3 mb-3" style="width: 22rem;">'+
+                    '<div class="card-body">'+
+                        '<p class="card-text">kamu telah memasukan '+namabarangKeranjang[i]+' kedalam keranjang seharga '+hargabarangKeranjang[i]+' dengan Qty 1</p>'+
+                        '<a href="#" class="btn btn-warning text-white" Onclick="deleteitem('+i+')">Hapus</a>'+
+                    '</div>'+
+                '</div>'
+
+                hargatotal = hargabarangKeranjang[i]+hargatotal
+
+                if (totalbayar>56000) {
+                    discount = totalbayar*0.05
+                }else{
+                    discount = 0
+                }
+                totalbayar = hargatotal-discount
+
+                pajak = totalbayar*0.1
+
+                var totalbelanja = totalbayar - pajak
+                tampilpajak.innerHTML = pajak
+                tampildiscount.innerHTML = discount
+                tampiltotalbayar.innerHTML = totalbelanja
+            }
+        }
+
+        function deleteitem(id){
+            namabarangKeranjang.splice(id, 1);
+            hargabarangKeranjang.splice(id, 1);
+
+            showKeranjang()
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</body>
+</html>

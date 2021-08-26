@@ -82,8 +82,8 @@
             for (i = 0; i<nama.length; i++){
                 var btnEdit = "<button class='btn btn-warning' onclick='edit("+i+")' type='button'>Edit</button>";
                 var btnHapus = "<button class='btn btn-danger' onclick='hapus("+i+")' type='button'>Hapus</button>";
-                j = i + 1;
-                tabel.innerHTML += "<tr><td>"+j+"</td><td>"+nama[i]+"</td><td>"+kelas[i]+"</td><td>"+telp[i]+"</td><td>"+email[i]+"</td><td>"+alamat[i]+"</td><td>"+btnEdit+" "+btnHapus+"</td></tr>";
+                nodata = i + 1;
+                tabel.innerHTML += "<tr><td>"+nodata+"</td><td>"+nama[i]+"</td><td>"+kelas[i]+"</td><td>"+telp[i]+"</td><td>"+email[i]+"</td><td>"+alamat[i]+"</td><td>"+btnEdit+" "+btnHapus+"</td></tr>";
             }
         }
 
@@ -93,6 +93,7 @@
             var alamatbaru = document.getElementById("inputalamat").value
             var emailbaru = document.getElementById("inputemail").value
             var telpbaru = document.getElementById("inputtelp").value
+
             nama.push(namabaru);
             kelas.push(kelasbaru);
             alamat.push(alamatbaru);
@@ -101,21 +102,21 @@
             tampil();
         }
 
-        function edit(id){
-            var namaedit = prompt("Edit Nama", nama[id]);
-            nama[id] = namaedit;
-            var telpedit = prompt("Edit No.Telp", telp[id]);
-            telp[id] = telpedit;
-            var emailedit = prompt("Edit Email", email[id]);
-            email[id] = emailedit;
-            var alamatedit = prompt("Edit Alamat", alamat[id]);
-            alamat[id] = alamatedit;
+        function edit(i){
+            var edit = prompt("Edit Nama", nama[i]);
+            nama[i] = edit;
+            var edit = prompt("Edit No.Telp", telp[i]);
+            telp[i] = edit;
+            var edit = prompt("Edit Email", email[i]);
+            email[i] = edit;
+            var edit = prompt("Edit Alamat", alamat[i]);
+            alamat[i] = edit;
 
             tampil();
         }
 
-        function hapus(id){
-            nama.splice(id, 1);
+        function hapus(i){
+            nama.splice(i, 1);
             tampil();
         }
         tampil();
