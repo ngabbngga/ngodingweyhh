@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
     <style>
         .jumbotron{
             height: 360px;
@@ -27,11 +28,12 @@
             font-size: 20px;
         }
     </style>
+
 </head>
 <body>
     <div class="jumbotron jumbotron-fluid text-white">
         <div class="container">
-          <h1 class="display-4">Fluid jumbotron</h1>
+          <h1 class="display-4">MengLaper :)</h1>
           <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat porro quod, excepturi quidem quisquam veritatis, sapiente praesentium enim, provident quam at fuga error perferendis <span class="text-warning">byee angga :p</span> rem adipisci omnis rerum nesciunt?</p>
         </div>
     </div>
@@ -45,9 +47,7 @@
                 <p class="mt-3 mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quae sapiente omnis rerum quam fugit adipisci, ducimus molestiae minima alias veritatis optio, nihil ab velit eos aperiam illo?</p>
 
                 <div class="listkeranjang" id="listkeranjang">
-                    <div class="alert alert-warning text-center" role="">
-                        <b>Sudah Tau Ingin Membeli Apa?</b>
-                    </div>
+                    <img src="img/burgereuyy.png" alt="" width="260px" class="ml-4">
                 </div>
                 
                 <table width="100%">
@@ -57,7 +57,7 @@
                             <td>Rp. <span id="discount"></span></td>
                         </tr>
                         <tr>
-                            <td>PPN (10%)</td>
+                            <td>Pajak (10%)</td>
                             <td>Rp. <span id="pajak"></span></td>
                         </tr>
                         <tr class="bg-warning text-white">
@@ -66,10 +66,74 @@
                         </tr>
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-warning mt-3 btn-block text-white apaya" onclick="ehbayar()">Bayar</button>
 
+                <button type="button" class="btn btn-warning mt-3 btn-block text-white apaya" data-toggle="modal" data-target="#staticBackdrop">Bayar</button>
+
+                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="staticBackdropLabel">Checkout :)</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+
+                        <div class="modal-body">
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni id,  architecto! Klau pembayaran menggunakan metode (Bayar Ditempat) tidak perlu mengisi email ndd password:
+                          <div class="input-group mb-2 mt-2">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="inputGroupSelect01">Metode</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                              <option value="1" selected>PayPal</option>
+                              <option value="2">gopay</option>
+                              <option value="3">Bayar Ditempat</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group mt-1">
+                            <label for="recipient-name" class="col-form-label">Akun:</label>
+                            <div class="input-group">
+                                <input type="text" aria-label="First name" class="form-control" placeholder="Email">
+                                <span class="input-group-text mr-1" id="basic-addon2">@mail.com</span>
+                                <input type="password" aria-label="Last name" class="form-control" placeholder="Password">
+                              </div>
+                          </div>
+
+                          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium animi esse ab, laboriosam dolores necessitatibus placeat.
+
+                          <div class="form-group mt-2">
+                            <label for="recipient-name" class="col-form-label">Nama Penerima:</label>
+                            <input type="text" class="form-control" id="recipient-name" placeholder="Name">
+                            <label for="recipient-name" class="col-form-label">No Telp:</label>
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">+62</label>
+                                <input type="number" class="form-control" id="recipient-name" placeholder="Phone Number">
+                            </div>
+                            <label for="message-text" class="col-form-label">Alamat:</label>
+                            <textarea class="form-control" id="message-text" placeholder="Addres"></textarea>
+                          </div>
+
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel vero et nobis atque non voluptatibus deleniti angga :)
+                        </div>
+
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-warning" onclick="bayarehh()">Submit</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-body">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo harum similique sapiente tempore, saepe quis nihil quod velit laboriosam. Laborum tempora fuga deserunt, pariatur enim alias?
+                    </div>
+                </div>
             </div>
             
+            <!-- list produk dari javascript ke html -->
             <div class="col-8" id="listproduk">
                 
             </div>
@@ -77,7 +141,8 @@
     </div>
 
     <script>
-        var namabarang = ["Burger Winy", "French Fries", "Donat hye", "Pizza Lumer", "Paket Kenyang Dehh", "Cips Combo"]
+        // gambar, nama, harga dari si koten
+        var namabarang = ["Burger  Weenie", "French beuhh", "Donat hye", "Pizza Lumer mer", "Paket Kenyang Dehh", "Cips Combo"]
         var hargabarang = [26000, 23000, 36000, 56000, 23000, 67547]
         var gambarbarang = ["img/burger.jpeg", "img/kentang.jpeg", "img/doughhnt.jpeg", "img/pizza.jpeg", "img/paketkenyang.jpeg", "img/cipscombo.jpeg"]
         var descbarang = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quae sapiente"
@@ -89,6 +154,7 @@
         function showProduk() {
             listproduk.innerHTML = ""
             
+            // content penjualann
             for (let i = 0; i < namabarang.length; i++) {
                 listproduk.innerHTML += '<div class="card float-left mr-3 mb-3" style="width: 12rem;">'+
                     '<img src="'+gambarbarang[i]+'" class="card-img-top" alt="">'+
@@ -123,6 +189,7 @@
             var hargatotal = 0;
             var totalbayar = 0;
             
+            // yang list itemm
             for (let i = 0; i < namabarangKeranjang.length; i++) {
                 listkeranjang.innerHTML +=
                 '<div class="card mt-3 mb-3" style="width: 22rem;">'+
@@ -159,8 +226,9 @@
     </script>
 
     <script>
-        function ehbayar(){
-            alert("Terimakasih Ngabb, Telah Membeli Produk Makanan Kami Uwwuwuu")
+        function bayarehh(){
+            window.location.reload()
+            // jaadi pas diklik window akan kereload dan semua pengaturan setting hilang
         }
     </script>
 
