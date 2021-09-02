@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinjem Buku?</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- Style CSS -->
+    <style>
+        .jumbotron{
+            height: 360px;
+            background-image: url(background.jpeg);
+            background-size: cover;
+            background-position-y: -50px;
+        }
+        .display-3{
+            font-size: 90px;
+            font-weight: bold;
+        }
+        .font_Size{
+            font-size: 20px;
+            padding: 12px;
+            border-radius: 3px;
+        }
+        .slogan{
+            font-size: 28px;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid text-white">
+        <div class="container">
+          <h1 class="display-3">Pinjem Buku?</h1>
+          <p class="lead font-weight-bold font_Size">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae fugit possimus maiores voluptatem ratione, ex doloribus. Blanditiis at, vitae saepe debitis aut quas quis hic laborum porro cumque excepturi atque? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet numquam at aspernatur dolorem.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="bg-warning font-weight-bold text-white font_Size mb-3">Lorem ipsum dolor sit amet consectetur.</div>
+        <div class="row">
+            <!-- output dari showProduk() atau isi content -->
+            <div class="col-8" id="produk">
+                
+            </div>
+            <div class="col-4">
+                <div class="bg-warning text-white text-center font_Size" role="">
+                    <b>Keranjang</b>
+                </div>
+
+                <p class="mt-2 mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quidem velit facere fugiat reprehenderit odio hic itaque officia est temporibus tempore alias labore a eaque autem distinctio, praesentium illum quam?</p>
+
+                <!-- output tambah di content -->
+                <div id="listKeranjang">
+                    
+                </div>
+
+                <a href="#" class="btn btn-block btn-warning text-white font-weight-bold mb-3" data-toggle="modal" data-target="#pinjam" Onclick="">Pinjam</a>
+                
+                <div class="card bg-danger text-white">
+                    <div class="card-body">
+                        <h5 class="text-center mb-3">Bukti Peminjaman</h5>
+                        <p>Jika buku dikembalikan lewat dari tanggal akan dikenai denda otomatis dari <span class="font-weight-bold" id="output_Metode"></span> dengan akun <span class="font-weight-bold" id="output_Email"></span>@email.com dengan pemotongan Rp.6000/hari</p>
+                        <p>Jumlah Buku : <span class="font-weight-bold" id="output_qtyBuku"></span> Buku</p>
+                        <p>Nama Buku : <span class="font-weight-bold" id="output_NamaBuku"></span></p>
+                        <p>Nama Peminjam : <span class="font-weight-bold" id="output_Nama"></span></p>
+                        <p>Telp : <span class="font-weight-bold" id="output_Telp"></span></p>
+                        <p>Tgl Pengembalian : <span class="font-weight-bold" id="output_Date"></span></p>
+                        <p>Alamat : <span class="font-weight-bold" id="output_Alamat"></span></p>
+                        <a href="#" class="btn btn-block btn-warning text-white font-weight-bold" Onclick="deleteAll()">Konfirmasi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="mt-3 text-center">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur tempora quasi dolorum quae dolorem eveniet aperiam optio quisquam cupiditate eos aliquid beatae nisi impedit sequi molestias sapiente obcaecati tempore quo, veniam quam. Optio corporis sequi laboriosam doloribus corrupti ut molestiae autem ducimus, repellendus eaque cum. Tempora in odit debitis totam distinctio quas similique temporibus, dolore possimus?
+        </p>
+    </div>
+
+    <!-- modal -->
+    <div class="modal fade" id="pinjam" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Input Data</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <!-- modal body isinya seperti input an -->
+            <div class="modal-body">
+                <form>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis magnam quisquam voluptatibus! Earum sit at neque facere placeat consequatur tempore molestiae facilis vero.</p>
+                    <div class="form-group">
+                      <label for="" class="col-form-label">Nama Peminjam :</label>
+                      <input type="text" class="form-control" id="input_Nama">
+                      <label for="" class="col-form-label">No Telp Peminjam :</label>
+                      <input type="number" class="form-control" id="input_Telp">
+                      <label for="" class="col-form-label">Tangga Pengembalian :</label>
+                      <input type="date" class="form-control" id="input_Date">
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, voluptates ipsa delectus, rerum quod quisquam et in harum dolorem at fugiat. Quos, dolores!</p>
+                    <div class="form-group">
+                        <label for="" class="col-form-label">Pembayaran/Tagihan :</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="inputGroupSelect01">Metode</label>
+                            </div>
+                            <select class="custom-select" id="input_Metode" id="inputGroupSelect01">
+                              <option value="PayPal" selected>PayPal</option>
+                              <option value="GoPay">GoPay</option>
+                              <option value="Bayar
+                              Ditempat">Bayar Ditempat</option>
+                            </select>
+                        </div>
+                        <label for="" class="col-form-label">Akun Tagihan :</label>
+                        <div class="input-group">
+                            <input type="email" aria-label="" class="form-control" id="input_Email">
+                            <div class="input-group-prepend mr-1">
+                              <span class="input-group-text">@email.com</span>
+                            </div>
+                            <input type="password" aria-label="" class="form-control">
+                        </div>
+                        <label for="message-text" class="col-form-label">Alamat Rumah/Pengiriman :</label>
+                        <textarea class="form-control" id="input_Alamat" id="message-text" placeholder="Masukan alamat"></textarea>
+                    </div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem voluptatem impedit, esse veniam molestiae vel culpa pariatur nam, odit sed, repellat ullam debitis.</p>
+                  </form>
+            </div>
+
+            <!-- modal footer seperti tombol -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger font-weight-bold" data-dismiss="modal">Hapus</button>
+              <button type="button" class="btn btn-warning font-weight-bold text-white" data-dismiss="modal" onclick="pinjam()">Pinjam</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <script>
+        // variable
+        var gambarbuku = [
+            "https://cdn.gramedia.com/uploads/items/9786020639581_CADL_C_1_4-1.jpg",
+            "https://ebooks.gramedia.com/ebook-covers/56399/thumb_image_normal/BLK_GMSW2020615728.jpg",
+            "https://cdn.gramedia.com/uploads/items/9786020651927_Funiculi_Funicula_cov.jpg",
+            "https://cdn.gramedia.com/uploads/items/9786020647098_Dear_Evan_Hansen_cov.jpg",
+            "https://cdn.gramedia.com/uploads/items/9786230304491_Unrequited-1.jpg",
+            "https://cdn.gramedia.com/uploads/items/detektif-conan-spesial-37.jpg",
+            "https://cdn.gramedia.com/uploads/items/9786020478555_Detektif-Cona.jpg",
+            "https://ebooks.gramedia.com/ebook-covers/39396/general_small_covers/ID_GPU2017MTH07BLTI_S.jpg",
+            "https://cdn.gramedia.com/uploads/items/9789792294293_Negeri-di-Uju.jpg",
+            "https://cdn.gramedia.com/uploads/items/9786020633411_LUSI_LINDRI_C_1_4-1.jpg",
+            "https://cdn.gramedia.com/uploads/items/9786020619439_Komik_Gugug.jpg",
+            "https://ebooks.gramedia.com/ebook-covers/43194/thumb_image_normal/ID_PA2018MTH07PA.jpg",
+            "https://ebooks.gramedia.com/ebook-covers/43195/thumb_image_normal/ID_PW2018MTH07PW.jpg",
+            "https://ebooks.gramedia.com/ebook-covers/39388/general_small_covers/ID_GPU2017MTH07TLCBIDKT_S.jpg",
+            "https://ebooks.gramedia.com/ebook-covers/38139/general_small_covers/ID_EMK2017MTH06SBSI_S.jpg",
+            "https://cdn.gramedia.com/uploads/items/9786022202448_9786022202448.jpg",
+            "https://cdn.gramedia.com/uploads/items/9786026714671_SI_JUKI_SERIES_VOL_1_FA.jpg",
+            "https://cdn.gramedia.com/uploads/items/9786230305535.jpg",
+            "https://cdn.gramedia.com/uploads/items/9786237778547.jpg",
+            "https://cdn.gramedia.com/uploads/items/9786239554552.jpg",
+            "https://cdn.gramedia.com/uploads/items/9786230304965_THE_BIRD_OF_DEATH_vol_2-1.jpg",
+            "https://cdn.gramedia.com/uploads/items/9786230303906_ANOTHER_01.jpg",
+            "https://ebooks.gramedia.com/ebook-covers/50658/thumb_image_normal/ID_BS4L2020MTH02S4.jpg",
+            "https://ebooks.gramedia.com/ebook-covers/47954/thumb_image_normal/ID_SA2019MTH06SA.jpg",
+            "https://cdn.gramedia.com/uploads/items/9786020515823_surat_kopi.jpg",
+        ]
+
+        var namabuku = [
+            "Cadl, ",
+            "Gadis Minimarket, ",
+            "Funiculi Funicula, ",
+            "Dear Evan Hansen, ",
+            "Unrequited, ",
+            "Detektif Conan Spesial 37, ",
+            "Detektif Conan Spesial 42, ",
+            "Buku Latihan Tidur, ",
+            "Negeri di Ujung Tanduk, ",
+            "Lusi Lindri, ",
+            "Komik: Gugug!, ",
+            "Pandora, ",
+            "Patiwangi, ",
+            "The Last Crowd, ",
+            "Side By Side, ",
+            "Si Juki: Seri Keroyokan #6, ",
+            "Si Juki Anak Kosan #1, ",
+            "Like A Momentary Ray Between Clouds, ",
+            "I Am A Cat, ",
+            "Parable, ",
+            "Akasha : The Birds Of Death 02, ",
+            "Akasha : Another 01, ",
+            "Bluestroberi 4: Limit, ",
+            "Sitayana, ",
+            "Surat Kopi, ",
+        ]
+        
+        var qtybuku = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,]
+        
+        // content
+        var produk = document.getElementById("produk")
+
+        var namabuku_Keranjang = []
+        var qtybuku_Keranjang = []
+
+        function showProduk() {
+            produk.innerHTML = ""
+            
+            for (let i = 0; i < gambarbuku.length; i++) {
+                produk.innerHTML += '<div class="card float-left mr-3 mb-3" style="width: 8rem;">'+
+                    '<img src="'+gambarbuku[i]+'" class="card-img-top mb-1" alt="">'+
+                      '<a href="#" class="btn btn-warning text-white font-weight-bold" onclick="addProduk('+i+')">Tambah</a>'+
+                    '</div>'+
+                '</div>'
+            }
+        }
+        showProduk()
+
+        // function buat menampilkan keranjang
+        function addProduk(id) {
+            namabuku_Keranjang.push(namabuku[id])
+            qtybuku_Keranjang.push(qtybuku[id])
+
+            showKeranjang()
+        }
+
+        // content keranjang
+        var listKeranjang = document.getElementById("listKeranjang")
+        var output_NamaBuku = document.getElementById("output_NamaBuku")
+        var output_qtyBuku = document.getElementById("output_qtyBuku")
+
+        function showKeranjang() {
+            listKeranjang.innerHTML = ""
+            var namabukuJumlah = ""
+            var qtyJumlah = 0;
+            
+            for (let i = 0; i < namabuku_Keranjang.length; i++) {
+                listKeranjang.innerHTML +=
+                '<div class="card mt-3 mb-3 bg-danger text-white" style="width: 22rem;">'+
+                    '<div class="card-body">'+
+                        '<p>Lorem ipsum dolor sit amet <span class="font-weight-bold">'+namabuku_Keranjang[i]+'</span> dengan jumlah <span class="font-weight-bold">'+qtybuku_Keranjang[i]+'</span>, adipisicing elit. incidunt iusto</p>'+
+                            '<a href="#" class="btn btn-block btn-warning text-white font-weight-bold" Onclick="deleteProduk('+i+')">Hapus</a>'+
+                    '</div>'+
+                '</div>'
+                namabukuJumlah = namabuku_Keranjang[i]+namabukuJumlah
+                output_NamaBuku.innerHTML = namabukuJumlah
+
+                qtyJumlah = qtybuku_Keranjang[i]+qtyJumlah
+                output_qtyBuku.innerHTML = qtyJumlah
+            }
+        }
+
+        function pinjam() {
+            var input_Nama = document.getElementById("input_Nama").value
+            var input_Telp = document.getElementById("input_Telp").value
+            var input_Date = document.getElementById("input_Date").value
+            var input_Metode = document.getElementById("input_Metode").value
+            var input_Email = document.getElementById("input_Email").value
+            var input_Alamat = document.getElementById("input_Alamat").value
+            
+            var output_Nama = document.getElementById("output_Nama").innerHTML = input_Nama;
+            var output_Telp = document.getElementById("output_Telp").innerHTML = input_Telp;
+            var output_Date = document.getElementById("output_Date").innerHTML = input_Date;
+            var output_Metode = document.getElementById("output_Metode").innerHTML = input_Metode;
+            var output_Email = document.getElementById("output_Email").innerHTML = input_Email;
+            var output_Alamat = document.getElementById("output_Alamat").innerHTML = input_Alamat;
+        }
+
+        // fungsinya buat menghapus SEMUAA list keranjang
+        function deleteAll(id) {
+            namabuku_Keranjang.splice(id,);
+
+            showKeranjang()
+        }
+
+        // fungsinya buat menghapus list keranjang
+        function deleteProduk(id) {
+            namabuku_Keranjang.splice(id, 1);
+
+            showKeranjang()
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</body>
+</html>
