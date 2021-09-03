@@ -63,14 +63,17 @@
                 <div class="card bg-danger text-white">
                     <div class="card-body">
                         <h5 class="text-center mb-3">Bukti Peminjaman</h5>
-                        <p>Jika buku dikembalikan lewat dari tanggal akan dikenai denda otomatis dari <span class="font-weight-bold" id="output_Metode"></span> dengan akun <span class="font-weight-bold" id="output_Email"></span>@email.com dengan pemotongan Rp.6000/hari</p>
+                        <p>Jika buku dikembalikan lewat dari tanggal akan dikenai denda otomatis dari <span class="font-weight-bold" id="output_Metode"></span> dengan akun <span class="font-weight-bold"><span id="output_Email"></span>@email.com</span> dengan pemotongan Rp.6000/hari</p>
                         <p>Jumlah Buku : <span class="font-weight-bold" id="output_qtyBuku"></span> Buku</p>
                         <p>Nama Buku : <span class="font-weight-bold" id="output_NamaBuku"></span></p>
                         <p>Nama Peminjam : <span class="font-weight-bold" id="output_Nama"></span></p>
                         <p>Telp : <span class="font-weight-bold" id="output_Telp"></span></p>
                         <p>Tgl Pengembalian : <span class="font-weight-bold" id="output_Date"></span></p>
                         <p>Alamat : <span class="font-weight-bold" id="output_Alamat"></span></p>
-                        <a href="#" class="btn btn-block btn-warning text-white font-weight-bold" Onclick="deleteAll()">Konfirmasi</a>
+                        <div class="btn-group btn-block">
+                            <a href="#" class="btn btn-warning text-white font-weight-bold mr-1" Onclick="deleteAllKeranjang()">Konfirmasi</a>
+                            <a href="#" class="btn btn-warning text-white font-weight-bold" Onclick="deleteAll()">Hapus</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -272,7 +275,7 @@
         }
 
         // fungsinya buat menghapus SEMUAA list keranjang
-        function deleteAll(id) {
+        function deleteAllKeranjang(id) {
             namabuku_Keranjang.splice(id,);
 
             showKeranjang()
@@ -283,6 +286,10 @@
             namabuku_Keranjang.splice(id, 1);
 
             showKeranjang()
+        }
+
+        function deleteAll() {
+            window.location.reload()
         }
     </script>
 
